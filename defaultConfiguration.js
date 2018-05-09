@@ -5,7 +5,7 @@ export type Configuration = {
     host: string,
     path?: string,
     // time delay to next check [min]
-    timeout: number, 
+    timeout: number,
     // deep compare of http response
     response?: { [keyOfResponse: string]: mixed },
     mails: Array<{
@@ -22,25 +22,11 @@ export type Configuration = {
 
 const configuration /*: Array< Configuration > */ = [
     {
-        host: "codebook.cz",
-        path: "/",
-        timeout: 720,
-        response: { statusCode: 200 },
-        mails: [{ mail: "ing.fenix@seznam.cz" }, { mail: "jaroslav.klim@gmail.com"}],
-    },
-    {
-        host: "sdjilm.cz",
+        host: "google.cz",
         path: "/",
         timeout: 10,
         response: { statusCode: 200 },
-        mails: [{ mail: "ing.fenix@seznam.cz" }, { mail: "jaroslav.klim@gmail.com"}],
-    },
-    {
-        host: "sdjilm.cz",
-        path: "/api/pagemenu/",
-        timeout: 10,
-        response: { statusCode: 200 },
-        mails: [{ mail: "ing.fenix@seznam.cz" }, { mail: "jaroslav.klim@gmail.com"}],
+        mails: [{ mail: "mymail@gmail.com"}],
         check: (body, response) => {
             try {
                 const bodyInJson = JSON.parse(body);
@@ -48,7 +34,7 @@ const configuration /*: Array< Configuration > */ = [
                     return [];
                 }
             } catch (e) { }
-            return ["Nase API nefunguje :("];
+            return ["My API doesn't work :("];
         }
     },
 ];

@@ -1,10 +1,28 @@
 // @flow
 
+const fs = require('fs');
 const http = require('http');
 const sendmail = require('sendmail')({ silent: true });
 
-/*:: import type { Configuration } from "./configuration" */
-const configuration = require("./configuration");
+/*::
+export type Configuration = {
+    host: string,
+    path?: string,
+    // time delay to next check [min]
+    timeout: number,
+    // deep compare of http response
+    response?: { [keyOfResponse: string]: mixed },
+    mails: Array<{
+        // default false
+        sentSuccess?: boolean,
+        // default true
+        sentErrors?: boolean,
+        mail: string,
+    }>,
+    // returned array of errors to sent by mail
+    check?: (body: string, response: HttpResponse) => Array< string >
+};
+*/
 
 function deepEqual(originalObject, compareObject) {
     for (const key in compareObject) {
@@ -26,7 +44,7 @@ function test(conf /*: Configuration */) {
     const { host, path, check, response, mails } = conf;
     const url = `${host}${path ? path : ""}`;
 
-    console.log(`Send request to: "url".`);
+    console.log(`Send request to: "${url}".`);
 
     http.get({ host, path }, httpResponse => {
         let body = '';
@@ -37,7 +55,7 @@ function test(conf /*: Configuration */) {
 
             if (response) {
                 if (!deepEqual(httpResponse, response)) {
-                    errors.push(`Response is not equal as defined. Defined: "${JSON.stringify(response)}". Original: "${JSON.stringify(httpResponse)}".`);
+                    errors.push(`Response is not equal as "${JSON.stringify(response)}".`);
                 }
             }
 
@@ -74,7 +92,7 @@ function test(conf /*: Configuration */) {
                     sendmail({
                         from: 'no-reply@codebook.com',
                         to: mailsToSend,
-                        subject: `Fílovo očko [${host}${path}]`,
+                        subject: `Fílovo očko [${url}]`,
                         html: `<h2>To "${url}" was errors:</h2>${errors.map(e => `<p>${e}</p>`).join("")}`,
                     }, function (err, reply) {
                         if (err) {
@@ -91,5 +109,11 @@ function test(conf /*: Configuration */) {
     });
 }
 
-
-configuration.forEach(conf => test(conf));
+module.exports = function ocko(configurationPath /*: string */) {
+    if (!fs.existsSync(configurationPath)) {
+        console.log(`The file with configuration "${configurationPath}" doesn't exist.`);
+    } else {
+        const configuration = require(configurationPath);
+        configuration.forEach(conf => test(conf));
+    }
+}

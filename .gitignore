@@ -1,5 +1,7 @@
 *
 !package.json
+!cli.js
+!defaultConfiguration.js
 !ocko.js
 !README.adoc
 !.gitignore

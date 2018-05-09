@@ -2,8 +2,10 @@
   "name": "ocko",
   "version": "1.0.0",
   "description": "Check your websites or application.",
-  "main": "ocko.js",
+  "main": "./ocko.js",
+  "bin": "./cli.js",
   "dependencies": {
+    "command-line-args": "^5.0.2",
     "sendmail": "^1.2.0"
   },
   "devDependencies": {},
