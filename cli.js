@@ -41,14 +41,14 @@ if (options.init) {
 
     console.log(`
   ____       _         
- / __ \  \/ | |        
+ / __ \\  \\/ | |        
 | |  | | ___| | _____  
-| |  | |/ __| |/ / _ \ 
+| |  | |/ __| |/ / _ \\ 
 | |__| | (__|   < (_) |
- \____/ \___|_|\_\___/ 
+ \\____/ \\___|_|\\_\\___/ 
   
 
-Check your websites or application.
+ Očko [otʃko] is a tool for checking your websites or http applications.
 
 Options:
 
