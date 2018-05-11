@@ -5,6 +5,7 @@ const ocko = require("./ocko");
 const fs = require("fs");
 const path = require("path");
 
+const chalk = require('chalk');
 const commandLineArgs = require('command-line-args');
 
 const optionDefinitions = [
@@ -39,18 +40,18 @@ if (options.init) {
 } else {
     // help
 
-    console.log(`
+    console.log(`${chalk.bold(`
   ____       _         
  / __ \\  \\/ | |        
 | |  | | ___| | _____  
 | |  | |/ __| |/ / _ \\ 
 | |__| | (__|   < (_) |
  \\____/ \\___|_|\\_\\___/ 
-  
+`)}
 
- Očko [otʃko] is a tool for checking your websites or http applications.
+Očko [otʃko] is a tool for checking your websites or http applications.
 
-Options:
+${chalk.bold('Options:')}
 
     -h, --help          Display this usage guide.
     -i, --init file     Create file with configuration.
