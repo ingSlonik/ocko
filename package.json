@@ -1,6 +1,6 @@
 {
   "name": "ocko",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Check your websites or application.",
   "main": "./ocko.js",
   "bin": "./cli.js",
