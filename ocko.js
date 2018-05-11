@@ -51,7 +51,7 @@ function deepEqual(originalObject, compareObject) /*: { successes: Array< string
 }
 
 function test(conf /*: Configuration */) {
-    const { host, path, check, response, mails } = conf;
+    const { host, path, check, response, mailFrom, mails } = conf;
     const url = `${host}${path ? path : ""}`;
 
     http.get({ host, path }, httpResponse => {
@@ -85,7 +85,7 @@ function test(conf /*: Configuration */) {
                 if (mailsToSend) {
                     console.log(`    ${chalk.yellow("!")} ${chalk.gray(`Success mail is sending to ${mailsToSend}.`)}`);
                     sendmail({
-                        from: 'no-reply@codebook.com',
+                        from: mailFrom,
                         to: mailsToSend,
                         subject: `Očko [${url}] | success`,
                         html: `<h2>The checking of "${url}" was successful:</h2>${successes.map(s => `<p><span style="color: green;">✓ </span> ${s}</p>`).join("")}`,
@@ -101,7 +101,7 @@ function test(conf /*: Configuration */) {
                 if (mailsToSend) {
                     console.log(`    ${chalk.yellow("!")} ${chalk.gray(`Mails with errors is sanding to ${mailsToSend}.`)}`);
                     sendmail({
-                        from: 'no-reply@codebook.com',
+                        from: mailFrom,
                         to: mailsToSend,
                         subject: `Očko [${url}] | error`,
                         html: `<h2>The checking of "${url}" caused following errors:</h2>${errors.map(e => `<p><span style="color: red;">✘ </span> ${e}</p>`).join("")}`,
