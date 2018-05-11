@@ -31,14 +31,16 @@ Check "sdjilm.cz/api/pagemenu":
 
 Check "google.cz/":
     ✘ The property "statusCode" of request is not equal with defined. Defined: 200, response: 301.
-    ! Mails with errors is sanding to ing.fenix@seznam.cz.
+    ! Mails with errors is sanding to xxx@xxx.com.
 
 Check "github.com/":
     ✘ The property "statusCode" of request is not equal with defined. Defined: 200, response: 301.
-    ! Mails with errors is sanding to ing.fenix@seznam.cz.
+    ! Mails with errors is sanding to xxx@xxx.com.
 ```
 
 ### Example of received e-mail:
 
-<h3>The checking of "github.com/" caused following errors:<h3>
-<p><span style="color: red;">✘ </span> The property "statusCode" of request is not equal with defined. Defined: 200, response: 301.</p>
+```
+The checking of "github.com/" caused following errors:
+  ✘ The property "statusCode" of request is not equal with defined. Defined: 200, response: 301.
+```
