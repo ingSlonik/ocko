@@ -5,6 +5,7 @@
   "main": "./ocko.js",
   "bin": "./cli.js",
   "dependencies": {
+    "chalk": "^2.4.1",
     "command-line-args": "^5.0.2",
     "sendmail": "^1.2.0"
   },
