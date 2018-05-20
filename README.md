@@ -2,7 +2,7 @@
 
 ![OČKO](./img/ocko.png)
 
-Očko **[otʃko]** is a tool for checking your websites or http applications.
+Očko **[otʃko]** is a tool for easy&lite checking your websites or http applications.
 
 ## Install
 
