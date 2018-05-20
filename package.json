@@ -1,6 +1,6 @@
 {
   "name": "ocko",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Očko [otʃko] is a tool for easy&lite checking your websites or http applications.",
   "main": "./ocko.js",
   "bin": "./cli.js",
