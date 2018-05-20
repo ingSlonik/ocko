@@ -1,18 +1,31 @@
 {
   "name": "ocko",
-  "version": "0.0.2",
-  "description": "Check your websites or application.",
+  "version": "0.1.0",
+  "description": "Očko [otʃko] is a tool for easy&lite checking your websites or http applications.",
   "main": "./ocko.js",
   "bin": "./cli.js",
+  "scripts": {},
   "dependencies": {
     "chalk": "^2.4.1",
     "command-line-args": "^5.0.2",
     "sendmail": "^1.2.0"
   },
   "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ingSlonik/ocko.git"
   },
-  "author": "Filip Paulů",
-  "license": "ISC"
+  "keywords": [
+    "check",
+    "http",
+    "mail",
+    "easy&lite",
+    "website",
+    "application"
+  ],
+  "author": "Filip Paulů <ing.fenix@seznam.cz>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ingSlonik/ocko/issues"
+  }
 }

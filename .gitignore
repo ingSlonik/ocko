@@ -1,7 +1,4 @@
-*
-!package.json
-!cli.js
-!defaultConfiguration.js
-!ocko.js
-!README.md
-!.gitignore
+__workspace
+node_modules
+.npmrc
+package-lock.json
