@@ -38,7 +38,7 @@ const configuration /*: Array< Configuration > */ = [
 
             try {
                 const bodyInJson = JSON.parse(body);
-                if (bodyInJson.statusCode === 401 && bodyInJson.error === "Api-Key Error") {
+                if (bodyInJson.statusCode === 401) {
                     successes.push("My API is o.k. ;-)");
                 } else {
                     errors.push("My API doesn't work :(");
