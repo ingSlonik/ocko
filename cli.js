@@ -34,7 +34,8 @@ if (options.init) {
         if (!fs.existsSync(configurationPath)) {
             console.log(`The file with configuration "${options.config}" doesn't exist.`);
         } else {
-            ocko(configurationPath);
+            const configuration = require(configurationPath);
+            ocko(configuration);
         }
     }
 } else {

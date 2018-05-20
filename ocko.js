@@ -118,11 +118,6 @@ function test(conf /*: Configuration */) {
     });
 }
 
-module.exports = function ocko(configurationPath /*: string */) {
-    if (!fs.existsSync(configurationPath)) {
-        console.log(`The file with configuration "${configurationPath}" doesn't exist.`);
-    } else {
-        const configuration = require(configurationPath);
-        configuration.forEach(conf => test(conf));
-    }
+module.exports = function ocko(configuration /*: Configuration[] */) {
+    configuration.forEach(conf => test(conf));
 }
