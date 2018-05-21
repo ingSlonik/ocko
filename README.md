@@ -113,7 +113,7 @@ Check "sdjilm.cz/api/pagemenu":
 
 Check "google.cz/":
     ✘ The property "statusCode" of request is not equal with defined. Defined: 200, response: 301.
-    ! Mails with errors is sanding to xxx@xxx.cz.
+    ! Mails with errors are being sent to ing.fenix@seznam.cz.
 ```
 
 ### Example of received e-mail:

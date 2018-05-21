@@ -83,7 +83,7 @@ function test(conf /*: Configuration */) {
                 // success
                 const mailsToSend = mails.filter(mail => mail.sentSuccess === true).map(mail => mail.mail).join(", ");
                 if (mailsToSend) {
-                    console.log(`    ${chalk.yellow("!")} ${chalk.gray(`Success mail is sending to ${mailsToSend}.`)}`);
+                    console.log(`    ${chalk.yellow("!")} ${chalk.gray(`Success mail is being sent to ${mailsToSend}.`)}`);
                     sendmail({
                         from: mailFrom,
                         to: mailsToSend,
@@ -99,7 +99,7 @@ function test(conf /*: Configuration */) {
                 // error
                 const mailsToSend = mails.filter(mail => mail.sentErrors !== false).map(mail => mail.mail).join(", ");
                 if (mailsToSend) {
-                    console.log(`    ${chalk.yellow("!")} ${chalk.gray(`Mails with errors is sanding to ${mailsToSend}.`)}`);
+                    console.log(`    ${chalk.yellow("!")} ${chalk.gray(`Mails with errors are being sent to ${mailsToSend}.`)}`);
                     sendmail({
                         from: mailFrom,
                         to: mailsToSend,
