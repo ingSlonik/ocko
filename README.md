@@ -36,18 +36,11 @@ ocko(configuration);
 
 All configuration is in array. You can check all of your websites.
 
-### `host`
-A domain name or IP address of the server to issue the request to. 
+### `url`
+A url or IP address of the server to issue the request to. 
 
 **type:** string      
-**example:** `google.com`
-
-### `path`
-It's behind the `host`.
-
-**type:** string  
-**default value:** `/`  
-**example:** `/search?q=npm+ocko`
+**example:** `https://google.com`
 
 ### `timeout`
 Time delay to next check [`min`].
@@ -62,13 +55,13 @@ Object to deep compare with HttpResponse of node.
 **default value:** `{ statusCode: 200 }`  
 
 ### `mailFrom`
-Mail to send errors or/and successes.
+Mail from send errors or/and successes.
 
 **type:** string  
 **example:** `xxx@gmail.com`
 
 ### `mails`
-Mail to send errors or/and successes.
+Mails to send errors or/and successes.
 
 **type:** `Array<{ sentSuccess?: boolean, sentErrors?: boolean,mail: string }>`  
 **default value:** `{ sentSuccess: false, sentErrors: true }`     
@@ -103,22 +96,22 @@ Your own method to check
 
 ### Example of a statement to the console:
 ```
-Check "github.com/":
-    ✓ The property "statusCode" of request is equal with defined: 301.
+2018-7-16 19:50:05 Check "http://github.com/":
+    ✘ The property "statusCode" of request is not equal with defined. Defined: 200, response: 301.
+    ! Mails with errors are being sent to xxx@xxx.com.
 
-Check "sdjilm.cz/api/pagemenu":
+2018-7-16 19:50:10 Check "http://sdjilm.cz/api/pagemenu":
     ✓ The property "statusCode" of request is equal with defined: 200.
     ✓ Response is JSON.
     ✓ My API is o.k. ;-)
 
-Check "google.cz/":
-    ✘ The property "statusCode" of request is not equal with defined. Defined: 200, response: 301.
-    ! Mails with errors is sanding to xxx@xxx.cz.
+2018-7-16 19:50:12 Check "https://google.cz/":
+    ✓ The property "statusCode" of request is equal with defined: 200.
 ```
 
 ### Example of received e-mail:
 
 ```
-The checking of "google.cz/" caused following errors:
+The checking of "http://github.com/" caused following errors:
     ✘ The property "statusCode" of request is not equal with defined. Defined: 200, response: 301.
 ```
