@@ -85,7 +85,7 @@ function test(conf /*: Configuration */) {
             }
 
             // show in console
-            console.log(`\nCheck "${url}":`);
+            console.log(`\n${chalk.gray(new Date().toLocaleString())} Check "${url}":`);
             successes.forEach(success => console.log(`    ${chalk.green("✓")} ${chalk.gray(success)}`));
             errors.map(error => console.log(`    ${chalk.red("✘")} ${chalk.gray(error)}`));
 
