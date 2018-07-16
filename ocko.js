@@ -2,13 +2,13 @@
 
 const fs = require('fs');
 const http = require('http');
+const https = require('https');
 const chalk = require('chalk');
 const sendmail = require('sendmail')({ silent: true });
 
 /*::
 export type Configuration = {
-    host: string,
-    path?: string,
+    url: string,
     // time delay to next check [min]
     timeout: number,
     // deep compare of http response
@@ -51,10 +51,20 @@ function deepEqual(originalObject, compareObject) /*: { successes: Array< string
 }
 
 function test(conf /*: Configuration */) {
-    const { host, path, check, response, mailFrom, mails } = conf;
-    const url = `${host}${path ? path : ""}`;
+    const { url, check, response, mailFrom, mails } = conf;
 
-    http.get({ host, path }, httpResponse => {
+    let get;
+
+    if (url.startsWith('http://')) {
+        get = http.get;
+    } else if (url.startsWith('https://')) {
+        get = https.get;
+    } else {
+        console.log(`${chalk.red("✘")} ${chalk.gray(`Url "${url} is not correct."`)}`);
+        return;
+    }
+
+    get(url, httpResponse => {
         let body = '';
         httpResponse.on('data', d => body += d);
         httpResponse.on('end', () => {

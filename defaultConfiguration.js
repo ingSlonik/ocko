@@ -2,8 +2,7 @@
 
 /*::
 export type Configuration = {
-    host: string,
-    path?: string,
+    url: string,
     // time delay to next check [min]
     timeout: number,
     // deep compare of http response
@@ -26,8 +25,7 @@ export type Configuration = {
 
 const configuration /*: Array< Configuration > */ = [
     {
-        host: "google.cz",
-        path: "/",
+        url: "https://google.cz",
         timeout: 10,
         response: { statusCode: 200 },
         mailFrom: "mymail@gmail.com",
